@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% load staticfiles %}
+    {% block content %}
+
+        <div class="centrado">
+            <form method="post" class="col s10">
+                <div class="row">
+                    <div class="input-field col s3">
+                    {% csrf_token %}
+                    {{form}}
+                    <button class="btn waves-effect waves light-green darken-4" type="submit">
+                        Registrarse
+                    </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    {% endblock content %}
