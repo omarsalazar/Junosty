@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-<p>
-    Esto es es login
-</p>
 
 <div class="row">
     <form method="post" class="col s10">
@@ -11,9 +8,9 @@
             <div class="input-field col s3">
                 {% csrf_token %}
                 {{loginform.as_p}}
-            <button class="btn waves-effect waves-light blue-grey" type="submit">
-                Inicia
-            </button>
+                <button class="btn waves-effect waves light-green darken-4" type="submit">
+                    Inicia
+                </button>
             </div>
         </div>
     </form>
