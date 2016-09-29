@@ -31,11 +31,6 @@ class registroForm(forms.ModelForm):
                 'placeholder':'Apellidos',
                 'class': 'validate',
             }),
-            'curp': forms.TextInput(attrs={
-                'type':'text',
-                'placeholder':'CURP',
-                'class': 'validate',
-            }),
             'carrera': forms.TextInput(attrs={
                 'type':'text',
                 'placeholder':'Carrera',
@@ -44,10 +39,6 @@ class registroForm(forms.ModelForm):
             'contrasena': forms.TextInput(attrs={
                 'type': 'password',
                 'placeholder':'Contraseña',
-                'class': 'validate',
-            }),
-            'fecha_nacimiento': forms.TextInput(attrs={
-                'type': 'date',
                 'class': 'validate',
             }),
             'user': forms.TextInput(attrs={
@@ -76,4 +67,32 @@ class inicioForm(forms.ModelForm):
                 'placeholder':'Contraseña',
                 'class': 'validate',
             }),
+        }
+class modificarForm(forms.ModelForm):
+    class Meta:
+        model = datosusuario
+        fields = ('contrasena', 'apellidos','nombre')
+
+        labels = {
+            'contrasena': _(''),
+            'nombre':_(''),
+            'apellidos':_(''),
+        }
+        widgets = {
+            'nombre': forms.TextInput(attrs={
+                'type':'text',
+                'placeholder':'Nombre',
+                'class': 'validate',
+            }),
+            'apellidos': forms.TextInput(attrs={
+                'type':'text',
+                'placeholder':'Apellidos',
+                'class': 'validate',
+            }),
+            'contrasena': forms.TextInput(attrs={
+                'type': 'password',
+                'placeholder':'Contraseña',
+                'class': 'validate',
+            }),
+
         }

@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
-from .forms import registroForm, inicioForm
+from .forms import registroForm, inicioForm, modificarForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
+from utils.registers import registro, modificaUsuario, registroUser
 # Create your views here.
 
 class Registro(View):
@@ -15,18 +16,22 @@ class Registro(View):
         return render(request, template_name, context)
 
     def post(self, request):
-        datos = registroForm(request.POST)
         username = request.POST.get('no_boleta')
         password = request.POST.get('contrasena')
-        if datos.is_valid():
-            datos.save()
-            User.objects.create_user(username=username,password=password)
-            return redirect('usuario:login')
+        try:
+            registroUser(username, password)
+            registro(request.POST)
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('usuario:index')
 
-        else:
+        except Exception as e:
+            print(e)
+            print(type(e))
             return redirect('usuario:registro')
 
 #Aquí se crea un método get y post para mandar y recibir los datos del login uwu
+#El metodo get renderiza la vista y el post los datos de la vista renderizada #ConocimientoPicosito
 class Login(View):
     def get(self, request):
         template_name = 'usuario/login.html'
@@ -39,6 +44,8 @@ class Login(View):
     def post(self, request):
         username = request.POST.get('no_boleta')
         password = request.POST.get('contrasena')
+        """Esto sirve para auntentificar que lo que se guardo exista, si existe entonces va a hacer el login,
+        de lo contrario redirijira al login"""
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
@@ -50,3 +57,25 @@ class Index(View):
     def get(self, request):
         template_name = 'usuario/index.html'
         return render(request, template_name)
+
+def Logout(request):
+    logout(request)
+    return redirect('usuario:login')
+
+class ModificarDatos(View):
+    def get(self, request):
+        template_name = 'usuario/modificar.html'
+        form = modificarForm()
+        context = {
+            'form': form,
+        }
+        return render(request, template_name, context)
+
+    def post(self, request):
+        try:
+            modificaUsuario(request)
+            return redirect('usuario:login')
+        except Exception as e:
+            print(e)
+            print(type(e))
+            return redirect('usuario:modficar')
