@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.views.generic import View
 from .forms import registroForm, inicioForm, modificarForm
 from django.contrib.auth.models import User
