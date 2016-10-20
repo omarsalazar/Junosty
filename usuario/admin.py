@@ -1,5 +1,10 @@
 from django.contrib import admin
-from .models import datosusuario, datoshorario, datosmateria, horas
+from datetime import datetime
+from .models import datosusuario
+from examen.models import examen, alarmaexamen, repeticionexamen
+from tarea.models import tarea, alarmatarea, repeticionalarma
+from semestre.models import semestre, vacaciones
+from materia.models import datoshorario, datosmateria, horas
 
 @admin.register(datosusuario)
 

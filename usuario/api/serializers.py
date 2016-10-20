@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from ..models import datosusuario, datoshorario, datosmateria, horas
+from materia.models import datoshorario, datosmateria, horas
+from usuario.models import datosusuario
 
 class HoraSerializer(serializers.ModelSerializer):
     class Meta:

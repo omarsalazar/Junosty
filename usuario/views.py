@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.shortcuts import render, redirect
 from django.views.generic import View
 from .forms import registroForm, inicioForm, modificarForm
 from django.contrib.auth.models import User
@@ -44,8 +44,10 @@ class Login(View):
     def post(self, request):
         username = request.POST.get('no_boleta')
         password = request.POST.get('contrasena')
-        """Esto sirve para auntentificar que lo que se guardo exista, si existe entonces va a hacer el login,
-        de lo contrario redirijira al login"""
+        
+        """Esto sirve para auntentificar que lo que se guardo exista, si
+        existe entonces va a hacer el login, de lo contrario redirijira
+        al login"""
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
