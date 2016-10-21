@@ -4,37 +4,32 @@
 {% block content %}
 <div class="jumbotron text-center">
   <div class="page-header"><h1>Registro</h1></div>
-    <form class="form-horizontal">
+    <form class="form-horizontal" method="post">
+        {% csrf_token %}
       <fieldset>
         <legend>Llena los campos</legend>
         <div class="form-group">
-          <label for="apregistro" class="col-lg-2 control-label">Apellido paterno</label>
-          <div class="col-lg-10">
-            <input type="text" class="form-control" id="apregistro" placeholder="Apellido paterno">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="amregistro" class="col-lg-2 control-label">Apellido materno</label>
-          <div class="col-lg-10">
-            <input type="text" class="form-control" id="amregistro" placeholder="Apellido materno">
-          </div>
-        </div>
-        <div class="form-group">
           <label for="materiaalerta" class="col-lg-2 control-label">Nombre</label>
           <div class="col-lg-10">
-            <input type="text" class="form-control" id="materiaalerta" placeholder="Materia de la alerta">
+            <input type="text" name="nombre" class="form-control" id="materiaalerta" placeholder="Materia de la alerta">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="apregistro" class="col-lg-2 control-label">Apellidos</label>
+          <div class="col-lg-10">
+            <input type="text" name="apellidos" class="form-control" id="apregistro" placeholder="Apellido paterno">
           </div>
         </div>
         <div class="form-group">
           <label for="boletaregistro" class="col-lg-2 control-label">Boleta</label>
           <div class="col-lg-10">
-            <input type="text" class="form-control" id="boletaregistro" placeholder="Número de boleta">
+            <input type="text" name="no_boleta" class="form-control" id="boletaregistro" placeholder="Número de boleta">
           </div>
         </div>
         <div class="form-group">
           <label for="passlogin" class="col-lg-2 control-label">Contraseña</label>
           <div class="col-lg-10">
-            <input type="password" class="form-control" id="passlogin" placeholder="Contraseña">
+            <input type="password" name="contrasena" class="form-control" id="passlogin" placeholder="Contraseña">
           </div>
         </div>
         <div class="form-group">
@@ -43,7 +38,11 @@
             <input type="password" class="form-control" id="pass2login" placeholder="Repite tu contraseña">
           </div>
         </div>
-
+        <div class="form-group">
+          <div class="col-lg-10">
+            <input type="hidden" name="carrera" class="form-control" id="apregistro" placeholder="Apellido paterno">
+          </div>
+        </div>
         <div class="form-group">
           <div class="col-lg-10 col-lg-offset-2">
             <button type="reset" class="btn btn-default">Cancelar</button>

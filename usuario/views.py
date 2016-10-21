@@ -6,6 +6,11 @@ from django.contrib.auth import login, logout, authenticate
 from utils.registers import registro, modificaUsuario, registroUser
 # Create your views here.
 
+class Perfil(View):
+    def get(self, request):
+        template_name = 'perfil.html'
+        return render(request, template_name)
+
 class Registro(View):
     def get(self, request):
         template_name = 'registro.html'
@@ -51,7 +56,7 @@ class Login(View):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('usuario:index')
+            return redirect('usuario:perfil')
         else:
             return redirect('usuario:login')
 

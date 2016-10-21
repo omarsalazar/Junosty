@@ -1,6 +1,6 @@
 from django.conf.urls import url
-# from .views import Alertas
-#
-# urlpatterns = [
-#     url(r'^alertas/', Alertas.as_view(), name='alertas'),
-# ]
+from .views import Tarea
+
+urlpatterns = [
+    url(r'^alertas', Tarea.as_view(), name='alerta'),
+]

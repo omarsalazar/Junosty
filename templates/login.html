@@ -4,19 +4,20 @@
 {% block content %}
 <div class="jumbotron text-center">
   <div class="page-header"><h1>Login</h1></div>
-    <form class="form-horizontal">
+    <form class="form-horizontal" method="POST">
+        {% csrf_token %}
       <fieldset>
         <legend>Tus datos</legend>
         <div class="form-group">
           <label for="boletalogin" class="col-lg-2 control-label">Boleta</label>
           <div class="col-lg-10">
-            <input type="text" class="form-control" id="boletalogin" placeholder="Número de boleta">
+            <input type="text" name="no_boleta" class="form-control" id="boletalogin" placeholder="Número de boleta">
           </div>
         </div>
         <div class="form-group">
           <label for="passlogin" class="col-lg-2 control-label">Contraseña</label>
           <div class="col-lg-10">
-            <input type="password" class="form-control" id="passlogin" placeholder="Contraseña">
+            <input type="password" name="contrasena" class="form-control" id="passlogin" placeholder="Contraseña">
           </div>
         </div>
 

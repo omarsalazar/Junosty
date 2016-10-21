@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.contrib import admin
-from .views import Registro, Login, Index, Logout, ModificarDatos
+from .views import Registro, Login, Index, Logout, ModificarDatos, Perfil
 
 urlpatterns = [
     url(r'^registro/', Registro.as_view(), name='registro'),
@@ -8,5 +8,5 @@ urlpatterns = [
     url(r'^index/', Index.as_view(), name='index'),
     url(r'^logout/', Logout, name='logout'),
     url(r'^modificardatos/', ModificarDatos.as_view(), name='modificar'),
-    #url(r'^perfil', Perfil.as_view(), name='perfil'),
+    url(r'^perfil', Perfil.as_view(), name='perfil'),
 ]
