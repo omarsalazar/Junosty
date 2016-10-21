@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load static %}
+{% block content %}
+<div class="jumbotron text-center">
+  <div class="page-header"><h1>Login</h1></div>
+    <form class="form-horizontal">
+      <fieldset>
+        <legend>Tus datos</legend>
+        <div class="form-group">
+          <label for="boletalogin" class="col-lg-2 control-label">Boleta</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="boletalogin" placeholder="Número de boleta">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="passlogin" class="col-lg-2 control-label">Contraseña</label>
+          <div class="col-lg-10">
+            <input type="password" class="form-control" id="passlogin" placeholder="Contraseña">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <button type="reset" class="btn btn-default">Cancelar</button>
+            <button type="submit" class="btn btn-success">Iniciar sesión</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+</div>
+
+{% endblock content %}

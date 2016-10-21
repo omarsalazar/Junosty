@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<!-- define angular app -->
+<html ng-app="junostyApp">
+
+<head>
+  <!-- SCROLLS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/custom.css" />
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+
+  <!-- SPELLS -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+  <script src="script.js"></script>
+</head>
+
+<!-- define controlador de angular -->
+<body ng-controller="perfilController">
+
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand">Junosty</a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#perfil"><i class="fa fa-user"></i> Perfil</a></li>
+        <li><a href="#calendario"><i class="fa fa-calendar"></i> Calendario</a></li>
+        <li><a href="#horario"><i class="fa fa-clock-o"></i> Horario</a></li>
+        <li><a href="#alertas"><i class="fa fa-bell"></i> Alertas</a></li>
+        <li><a href="#materias"><i class="fa fa-pencil"></i> Materias</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="main" class="container">
+
+    <!-- modelado de angular -->
+		<!-- aquí es donde se inyectará el codigo -->
+    <div ng-view></div>
+
+  </div>
+
+  <footer class="text-center">
+    <p>Bienvenido de vuelta <a href="#login">Inicia sesión</a></p>
+
+    <p>¿Que esperas? <a href="#registro">Registrate</a></p>
+  </footer>
+
+</body>
+
+</html>

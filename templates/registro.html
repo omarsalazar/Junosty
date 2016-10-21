@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load static %}
+{% block content %}
+<div class="jumbotron text-center">
+  <div class="page-header"><h1>Registro</h1></div>
+    <form class="form-horizontal">
+      <fieldset>
+        <legend>Llena los campos</legend>
+        <div class="form-group">
+          <label for="apregistro" class="col-lg-2 control-label">Apellido paterno</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="apregistro" placeholder="Apellido paterno">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="amregistro" class="col-lg-2 control-label">Apellido materno</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="amregistro" placeholder="Apellido materno">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="materiaalerta" class="col-lg-2 control-label">Nombre</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="materiaalerta" placeholder="Materia de la alerta">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="boletaregistro" class="col-lg-2 control-label">Boleta</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="boletaregistro" placeholder="Número de boleta">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="passlogin" class="col-lg-2 control-label">Contraseña</label>
+          <div class="col-lg-10">
+            <input type="password" class="form-control" id="passlogin" placeholder="Contraseña">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pass2login" class="col-lg-2 control-label">Repite tu contraseña</label>
+          <div class="col-lg-10">
+            <input type="password" class="form-control" id="pass2login" placeholder="Repite tu contraseña">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <button type="reset" class="btn btn-default">Cancelar</button>
+            <button type="submit" class="btn btn-success">Registrarse</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+</div>
+
+{% endblock content %}

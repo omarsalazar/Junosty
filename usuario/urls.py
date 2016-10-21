@@ -8,5 +8,5 @@ urlpatterns = [
     url(r'^index/', Index.as_view(), name='index'),
     url(r'^logout/', Logout, name='logout'),
     url(r'^modificardatos/', ModificarDatos.as_view(), name='modificar'),
-
+    #url(r'^perfil', Perfil.as_view(), name='perfil'),
 ]

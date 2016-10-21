@@ -8,7 +8,7 @@ from utils.registers import registro, modificaUsuario, registroUser
 
 class Registro(View):
     def get(self, request):
-        template_name = 'usuario/registro.html'
+        template_name = 'registro.html'
         form = registroForm()
         context = {
             'form': form,
@@ -34,7 +34,7 @@ class Registro(View):
 #El metodo get renderiza la vista y el post los datos de la vista renderizada #ConocimientoPicosito
 class Login(View):
     def get(self, request):
-        template_name = 'usuario/login.html'
+        template_name = 'login.html'
         form = inicioForm()
         context = {
             'loginform': form,
@@ -44,7 +44,7 @@ class Login(View):
     def post(self, request):
         username = request.POST.get('no_boleta')
         password = request.POST.get('contrasena')
-        
+
         """Esto sirve para auntentificar que lo que se guardo exista, si
         existe entonces va a hacer el login, de lo contrario redirijira
         al login"""
@@ -57,7 +57,7 @@ class Login(View):
 
 class Index(View):
     def get(self, request):
-        template_name = 'usuario/index.html'
+        template_name = 'index.html'
         return render(request, template_name)
 
 def Logout(request):
