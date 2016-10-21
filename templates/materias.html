@@ -18,37 +18,40 @@
                 </thead>
 
                 <tbody>
-                  <tr>
-                    <td>6IV3</td>
-                    <td>Fisica IV</td>
-                    <td>Diaz Monroy Gilberto Gamaliel</td>
-                    <td><a href="#" class="btn btn-success btn-xs">Editar</a></td>
-                    <td><a href="#" class="btn btn-danger btn-xs">Eliminar</a></td>
-                  </tr>
+                    {% for holis in materias %}
+                      <tr>
+                        <td>{{holis.grupo}}</td>
+                        <td>{{holis.materia}}</td>
+                        <td>{{holis.profesor}}</td>
+                        <td><a href="#" class="btn btn-success btn-xs">Editar</a></td>
+                        <td><a href="#" class="btn btn-danger btn-xs">Eliminar</a></td>
+                      </tr>
+                  {% endfor %}
                 </tbody>
               </table>
 
 
 
-              <form class="form-horizontal">
+              <form class="form-horizontal" method="POST">
                 <fieldset>
+                    {% csrf_token %}
                   <legend>Agregar Materias</legend>
                   <div class="form-group">
                     <label for="grupomateria" class="col-lg-2 control-label">Grupo</label>
                     <div class="col-lg-10">
-                      <input type="text" class="form-control" id="grupomateria" placeholder="Grupo de la materia">
+                        {{form.grupo}}
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="nombremateria" class="col-lg-2 control-label">Nombre</label>
                     <div class="col-lg-10">
-                      <input type="text" class="form-control" id="nombremateria" placeholder="Nombre de la materia">
+                        {{ form.materia }}
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="profesormateria" class="col-lg-2 control-label">Profesor</label>
                     <div class="col-lg-10">
-                      <input type="text" class="form-control" id="profesormateria" placeholder="Porfesor que imparte">
+                        {{form.profesor}}
                     </div>
                   </div>
                     <div class="form-group">
