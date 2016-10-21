@@ -21,8 +21,8 @@ class adminHorario(admin.ModelAdmin):
 @admin.register(datosmateria)
 
 class adminMateria(admin.ModelAdmin):
-    list_display = ('materia','profesor','horario')
-    list_filter = ('materia','profesor','horario')
+    list_display = ('id','materia','profesor','horario')
+    list_filter = ('id','materia','profesor','horario')
 
 @admin.register(horas)
 

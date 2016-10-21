@@ -31,6 +31,9 @@
         <li><a href="/semestre/horario"><i class="fa fa-clock-o"></i> Horario</a></li>
         <li><a href="/tarea/alertas"><i class="fa fa-bell"></i> Alertas</a></li>
         <li><a href="/materia/horario"><i class="fa fa-pencil"></i> Materias</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="/usuario/logout"><i class="fa fa-user"></i> Cerrar Sesion</a></li>
+        {% endif %}
       </ul>
     </div>
   </nav>

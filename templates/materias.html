@@ -23,8 +23,15 @@
                         <td>{{holis.grupo}}</td>
                         <td>{{holis.materia}}</td>
                         <td>{{holis.profesor}}</td>
-                        <td><a href="#" class="btn btn-success btn-xs">Editar</a></td>
-                        <td><a href="#" class="btn btn-danger btn-xs">Eliminar</a></td>
+                        <td><a href="{% url 'materia:editar' pk=holis.pk %}" class="btn btn-success btn-xs">Editar</a></td>
+                        <td>
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="id" value="{{holis.id}}">
+                                <input type="hidden" name="action" value="eliminar">
+                                <button class="btn btn-danger btn-xs">Eliminar</button>
+                            </form>
+                        </td>
                       </tr>
                   {% endfor %}
                 </tbody>
@@ -35,6 +42,7 @@
               <form class="form-horizontal" method="POST">
                 <fieldset>
                     {% csrf_token %}
+                    <input type="hidden" name="action" value="agregar">
                   <legend>Agregar Materias</legend>
                   <div class="form-group">
                     <label for="grupomateria" class="col-lg-2 control-label">Grupo</label>

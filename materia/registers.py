@@ -87,3 +87,25 @@ def guardar_materia(request):
         except Exception as e:
             print(e)
             print(type(e))
+
+def eliminar_materias(request):
+    materia = request.POST.get('id')
+    try:
+        obj_materia = datosmateria.objects.all().filter(id=materia)
+        obj_materia.delete()
+    except Exception as e:
+        print('error')
+        print(e)
+        print(type(e))
+
+def cambiar_materia(request):
+    materia = request.POST.get('id')
+    try:
+        obj_materia = datosmateria.objects.get(id=materia)
+        obj_materia.materia = request.POST.get('materia')
+        obj_materia.profesor = request.POST.get('profesor')
+        obj_materia.grupo = request.POST.get('grupo')
+        obj_materia.save()
+    except Exception as e:
+        print(e)
+        print(type(e))
