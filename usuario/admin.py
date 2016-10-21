@@ -27,5 +27,5 @@ class adminMateria(admin.ModelAdmin):
 @admin.register(horas)
 
 class adminHoras(admin.ModelAdmin):
-    list_display = ('hora', 'fecha', 'materia')
-    list_filter = ('hora', 'fecha', 'materia')
+    list_display = ('hora', 'fin', 'fecha', 'materia')
+    list_filter = ('hora', 'fin', 'fecha', 'materia')

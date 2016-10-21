@@ -45,10 +45,17 @@ class Materia(View):
 class Detalles(View):
     def get(self, request, pk):
         materia = datosmateria.objects.get(pk=pk)
-        print(len(materia.materia))
+        try:
+            hora = horas.objects.all().filter(materia=materia)
+        except:
+            hora = {
+
+            }
+        print(hora)
         template_name = 'materia_detail.html'
         context = {
-            'materia': materia
+            'materia': materia,
+            'horas': hora
         }
         return render(request, template_name, context)
 

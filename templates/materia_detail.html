@@ -2,9 +2,17 @@
 {% load staticfiles %}
 {% load static %}
 {% block content %}
+<style media="screen">
+    .perro_master{
+        float: left;
+        width: 250px;
+        padding-left: 30px;
+    }
+
+</style>
     <div class="jumbotron text-center">
         <div class="page-header"><h3>Editar</h3></div>
-            <form method="post">
+            <form method="post" class="form-horizontal">
                 {% csrf_token %}
                 <div class="form-group">
                   <label for="nombremateria" class="col-lg-2 control-label">Materia</label>
@@ -25,14 +33,89 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="nombremateria" class="col-lg-2 control-label">Grupo</label>
+
                   <div class="col-lg-10">
                       <input type="hidden" class="form-control" name="id" value="{{materia.id}}">
                   </div>
                 </div>
                 <div class="form-group">
+
+                  <div class="col-lg-10">
+
+                         <p class="perro_master">
+                             {{hora.fecha}}
+                         </p>
+                         <p class="perro_master">
+                             {{hora.hora}}
+                         </p>
+                         <p class="perro_master">
+                             {{hora.fin}}
+                         </p>
+
+                  </div>
+                </div>
+                <label class="col-lg-2 control-label">Tipo de alerta</label>
+                <div class="col-lg-10">
+                  <div class="">
+                      <div class="perro_master">
+                          <select class="form-control perro_master" name="dia">
+                              <option value="Lunes"selected>Lunes</option>
+                              <option value="Martes">Martes</option>
+                              <option value="Miercoles">Miercoles</option>
+                              <option value="Jueves">Jueves</option>
+                              <option value="Viernes">Viernes</option>
+                              <option value="Sabado">Sabado</option>
+                              <option value="Domingo">Domindo</option>
+                          </select>
+                      </div>
+                      <div class="perro_master">
+                          <select class="form-control perro_master" name="hora">
+                              <option value="7:00"selected>7:00</option>
+                              <option value="8:00">8:00</option>
+                              <option value="9:00">9:00</option>
+                              <option value="10:00">10:00</option>
+                              <option value="11:00">11:00</option>
+                              <option value="12:00">12:00</option>
+                              <option value="13:00">13:00</option>
+                              <option value="14:00">14:00</option>
+                              <option value="15:00">15:00</option>
+                              <option value="16:00">16:00</option>
+                              <option value="17:00">17:00</option>
+                              <option value="18:00">18:00</option>
+                              <option value="19:00">19:00</option>
+                              <option value="20:00">20:00</option>
+                              <option value="21:00">21:00</option>
+                              <option value="22:00">22:00</option>
+                          </select>
+                      </div>
+                      <div class="perro_master">
+                          <select class="form-control perro_master" name="fin">
+                              <option value="7:00"selected>7:00</option>
+                              <option value="8:00">8:00</option>
+                              <option value="9:00">9:00</option>
+                              <option value="10:00">10:00</option>
+                              <option value="11:00">11:00</option>
+                              <option value="12:00">12:00</option>
+                              <option value="13:00">13:00</option>
+                              <option value="14:00">14:00</option>
+                              <option value="15:00">15:00</option>
+                              <option value="16:00">16:00</option>
+                              <option value="17:00">17:00</option>
+                              <option value="18:00">18:00</option>
+                              <option value="19:00">19:00</option>
+                              <option value="20:00">20:00</option>
+                              <option value="21:00">21:00</option>
+                              <option value="22:00">22:00</option>
+                          </select>
+                      </div>
+                      <div style="clear:both"></div>
+                      <br>
+                  </div>
+
+                </div>
+                <div class="form-group">
                   <div class="col-lg-10 col-lg-offset-2">
-                    <button type="submit" class="btn btn-primary">Cambiar</button>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
                   </div>
                 </div>
             </form>

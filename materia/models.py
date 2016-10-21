@@ -17,6 +17,7 @@ class datosmateria(models.Model):
         return '{}'.format(self.materia)
 
 class horas(models.Model):
-    hora = models.DateTimeField(blank=True, null=True)
-    fecha = models.DateTimeField(blank=True, null=True)
+    hora = models.CharField(blank=True, null=True, max_length=30)
+    fin = models.CharField(blank=True, null=True, max_length=30)
+    fecha = models.CharField(blank=True, null=True, max_length=30)
     materia =models.ForeignKey(datosmateria, blank=False, null=False)

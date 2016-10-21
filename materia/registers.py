@@ -109,3 +109,14 @@ def cambiar_materia(request):
     except Exception as e:
         print(e)
         print(type(e))
+    try:
+        hrs = horas()
+        print(request.POST.get('dia'))
+        hrs.fecha = request.POST.get('dia')
+        hrs.hora = request.POST.get('hora')
+        hrs.fin = request.POST.get('fin')
+        hrs.materia = datosmateria.objects.get(id=materia)
+        hrs.save()
+    except Exception as e:
+        print(e)
+        print(type(e))
