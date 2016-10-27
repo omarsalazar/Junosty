@@ -1,6 +1,9 @@
 from rest_framework import serializers
 from materia.models import datoshorario, datosmateria, horas
 from usuario.models import datosusuario
+from examen.models import examen, alarmaexamen, repeticionexamen
+from semestre.models import semestre, vacaciones
+from tarea .models import tarea,,alarmatarea, repeticionalarma
 
 class HoraSerializer(serializers.ModelSerializer):
     class Meta:
@@ -19,3 +22,7 @@ class HorarioSerializer(serializers.ModelSerializer):
         model = datoshorario
         fields = ('user', 'materias')
         depth = 1
+
+class ExamenSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = 
