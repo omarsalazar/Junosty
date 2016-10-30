@@ -13,7 +13,7 @@ class alarmatarea(models.Model):
     fecha_entrega = models.DateTimeField(blank=True, null=True)
     id_tarea = models.ForeignKey(tarea, blank=False, null=False)
 
-class repeticionalarma(models.Model):
+class repeticiontarea(models.Model):
     horaalarma = models.DateTimeField(blank=True, null=True)
     id_alarmatarea = models.ForeignKey(alarmatarea, blank=False, null=False)
 #Aquí finaliza la parte de las tareas

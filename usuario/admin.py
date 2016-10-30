@@ -2,7 +2,7 @@ from django.contrib import admin
 from datetime import datetime
 from .models import datosusuario
 from examen.models import examen, alarmaexamen, repeticionexamen
-from tarea.models import tarea, alarmatarea, repeticionalarma
+from tarea.models import tarea, alarmatarea, repeticiontarea
 from semestre.models import semestre, vacaciones
 from materia.models import datoshorario, datosmateria, horas
 
