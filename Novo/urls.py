@@ -14,5 +14,6 @@ urlpatterns = [
     url(r'^materia/', include(urlsMateria, namespace='materia')),
     url(r'^tarea/', include(urlsTarea, namespace='tarea')),
     url(r'^semestre/', include(urlsSemestre, namespace='semestre')),
-    # url(r'^horario/', include(materiasAPI, namespace='horario'))
+    #url(r'^horario/', include(materiasAPI, namespace='horario'))
+    url(r'^apiv1/', include(materiasAPI, namespace= 'apiv1')),
 ]
