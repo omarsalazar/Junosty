@@ -7,31 +7,33 @@ from tarea.models import tarea, alarmatarea, repeticiontarea
 
 #Admin = dinosaurio pass= dino1234
 
-#Estas son las APIs de los datos de el modelo "materia"
+#Estas son las APIs de los datos de la app "materia"
 class HoraSerializer(serializers.ModelSerializer):
     class Meta:
         model = horas
-        fields = '__all__'
-
-class HorarioSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = datoshorario
-        fields = ('user', 'semestre')
-        depth = 1
+        fields = ('hora', 'fin', 'fecha', 'materia')
 
 class MateriaSerializer(serializers.ModelSerializer):
+    materias = HoraSerializer(many=True)
     class Meta:
         model = datosmateria
-        fields = ('materia', 'profesor', 'horario', 'grupo')
+        fields = ('materia', 'profesor', 'horario', 'materias')
+
+class HorarioSerializer(serializers.ModelSerializer):
+    horarios = MateriaSerializer(many=True)
+    class Meta:
+        model = datoshorario
+        fields = ('user', 'semestre','horarios')
         depth = 1
 
-#Esta es la API del modelo "usuario"
+
+#Esta es la API de la app "usuario"
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = datosusuario
         fields = '__all__'
 
-#Estas son las APIs del modelo "semestre"
+#Estas son las APIs de la app "semestre"
 class SemestreSerializer(serializers.ModelSerializer):
     class Meta:
         model = semestre
@@ -42,7 +44,7 @@ class VacacionesSerializer(serializers.ModelSerializer):
         model = vacaciones
         fields = '__all__'
 
-#Estas son las APIs del modelo "examen"
+#Estas son las APIs de la app "examen"
 class ExamenSerializer(serializers.ModelSerializer):
     class Meta:
         model = examen
@@ -58,7 +60,7 @@ class RepeticionAlarmaExamenSerializer(serializers.ModelSerializer):
         model = repeticionexamen
         fields = '__all__'
 
-#Estas son las APIs del modelo "tarea"
+#Estas son las APIs de la app "tarea"
 class TareaSerializer(serializers.ModelSerializer):
     class Meta:
         model = tarea
@@ -73,3 +75,5 @@ class RepeticionAlarmaTareaSerializer(serializers.ModelSerializer):
     class Meta:
         model = repeticiontarea
         fields = '__all__'
+
+#A partir de aquí es otra manera de hacer la API

@@ -6,7 +6,6 @@ from materia.models import datosmateria
 #Aquí inicia la parte de los examenes
 class examen(models.Model):
     id_examen = models.CharField(blank=False, null=False, max_length=20)
-    id_tarea = models.CharField(blank=False, null=False, max_length=20)
     descripcion = models.CharField(blank=False, null=False, max_length=100)
     materia = models.ForeignKey(datosmateria, blank=False, null=False)
     fecha_entrega = models.DateTimeField(blank=False, null=False)
