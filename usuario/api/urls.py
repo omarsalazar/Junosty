@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import horario_list, hora_list, materia_list, usuario_list
+from .views import horario_list, hora_list, materia_list, usuario_list, semestre_list, vacaciones_list
 from django.views.decorators.csrf import csrf_exempt
 
 #Urls de las APIs
@@ -17,8 +17,18 @@ urlpatterns = [
         name='materia'
     ),
 
-    url(r'^api_usuario/$',
+    url(r'^usuario/$',
         csrf_exempt(usuario_list),
-        name='api_usuario'
+        name='usuario'
+    ),
+
+    url(r'^semestre/$',
+        csrf_exempt(semestre_list),
+        name='semestre'
+    ),
+
+    url(r'^vacaciones/$',
+        csrf_exempt(vacaciones_list),
+        name='vacaciones'
     ),
 ]

@@ -5,15 +5,17 @@ from rest_framework.response import Response
 from rest_framework import status
 from materia.models import datoshorario, horas, datosmateria
 from usuario.models import datosusuario
-from .serializers import HoraSerializer, HorarioSerializer, MateriaSerializer, UsuarioSerializer
+from semestre.models import semestre, vacaciones
+from .serializers import HoraSerializer, HorarioSerializer, MateriaSerializer, UsuarioSerializer, SemestreSerializer, VacacionesSerializer
 
 #Recuerda importar todo lo que necesites.
-#Vistas del API de los datos del modelo Materia.
+#Vistas de la API de los datos del modelo "materia".
 #view de la API del horario.
 @api_view(['GET', 'POST'])
 
 def horario_list(request):
     try:
+        #La linea de abajo es cómo se hace una consulta a la base de datos
         horario_obj = datoshorario.objects.all()
     except Exception as e:
         print(e)
@@ -48,8 +50,8 @@ def materia_list(request):
         serializer = MateriaSerializer(materia_obj, many=True)
         return Response(serializer.data)
 
-#Vistas del API de los datos del modelo Materia.
-#View de la API de los datos del usuario
+#Vistas de la API de los datos del modelo "usuario".
+#View de la API de los datos del usuario.
 @api_view(['GET', 'POST'])
 
 def usuario_list(request):
@@ -60,4 +62,30 @@ def usuario_list(request):
         print(type(e))
     if request.method == 'GET':
         serializer = UsuarioSerializer(usuario_obj, many=True)
+        return Response(serializer.data)
+
+#Vistas de la API del modelo "semestre"
+#View de la API de los datos del semestre
+@api_view(['GET', 'POST'])
+
+def semestre_list(request):
+    try:
+        semestre_obj = semestre.objects.all()
+    except Exception as e:
+        print(e)
+        print(type(e))
+    if request.method == 'GET':
+        serializer = SemestreSerializer(semestre_obj, many=True)
+        return Response(serializer.data)
+
+#View de la API de los datos de las vacaciones
+@api_view(['GET', 'POST'])
+def vacaciones_list(request):
+    try:
+        vacaciones_obj = vacaciones.objects.all()
+    except Exception as e:
+        print(e)
+        print(type(e))
+    if request.method == 'GET':
+        serializer = VacacionesSerializer(vacaciones_obj, many=True)
         return Response(serializer.data)

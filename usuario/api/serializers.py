@@ -1,8 +1,8 @@
 from rest_framework import serializers
 from materia.models import datoshorario, datosmateria, horas
-from ..models import datosusuario
-from examen.models import examen, alarmaexamen, repeticionexamen
+from usuario.models import datosusuario
 from semestre.models import semestre, vacaciones
+from examen.models import examen, alarmaexamen, repeticionexamen
 from tarea .models import tarea,alarmatarea, repeticionalarma
 
 #Admin = dinosaurio pass= dino1234
@@ -29,4 +29,15 @@ class MateriaSerializer(serializers.ModelSerializer):
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = datosusuario
+        fields = '__all__'
+
+#Esta es la API del modelo semestre
+class SemestreSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = semestre
+        fields = '__all__'
+
+class VacacionesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = vacaciones
         fields = '__all__'
