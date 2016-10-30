@@ -7,5 +7,4 @@ class datosusuario(models.Model):
     nombre = models.CharField(blank=False, null=False, max_length=50)
     apellidos = models.CharField(blank=False, null=False, max_length=100)
     no_boleta = models.CharField(blank=False, null=False, max_length=10)
-    carrera = models.CharField(blank=False, null=False, max_length=50)
     contrasena = models.CharField(blank=False, null=False, max_length=100)

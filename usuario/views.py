@@ -28,7 +28,7 @@ class Registro(View):
             registro(request.POST)
             user = authenticate(username=username, password=password)
             login(request, user)
-            return redirect('usuario:index')
+            return redirect('usuario:perfil')
 
         except Exception as e:
             print(e)

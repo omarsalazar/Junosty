@@ -14,6 +14,7 @@ def guardar_materia(request):
         aidi_seme = str(uuid.uuid4().fields[-1])[:5]+str(request.user.username)
         try:
             seme.id_semestre = aidi_seme
+            seme.user = request.user
             seme.save()
         except Exception as e:
             print(e)
