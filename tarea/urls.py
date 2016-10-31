@@ -1,6 +1,6 @@
 from django.conf.urls import url
-from .views import Tarea
+from .views import Agregar_tarea
 
 urlpatterns = [
-    url(r'^alertas', Tarea.as_view(), name='alerta'),
+    url(r'^alertas', Agregar_tarea.as_view(), name='alerta'),
 ]

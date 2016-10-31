@@ -11,7 +11,7 @@ class datosmateria(models.Model):
     materia = models.CharField(blank=False, null=False, max_length=50)
     profesor = models.CharField(blank=False, null=False, max_length=60)
     horario = models.ForeignKey(datoshorario, blank=False, null=False, related_name='horarios')
-    grupo = models.CharField(blank=False, null=False, max_length=6)
+    grupo = models.CharField(blank=True, null=True, max_length=6)
 
     def __str__(self):
         return '{}'.format(self.materia)

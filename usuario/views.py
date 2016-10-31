@@ -50,9 +50,9 @@ class Login(View):
         username = request.POST.get('no_boleta')
         password = request.POST.get('contrasena')
 
-        """Esto sirve para auntentificar que lo que se guardo exista, si
-        existe entonces va a hacer el login, de lo contrario redirijira
-        al login"""
+        # Esto sirve para auntentificar que lo que se guardo exista, si
+        # existe entonces va a hacer el login, de lo contrario redirijira
+        # al login
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)

@@ -21,7 +21,7 @@ class MateriaForm(forms.ModelForm):
             'profesor': forms.TextInput(
                 attrs = {
                     'class': 'form-control',
-                    'placeholder': 'Porfesor que imparte'
+                    'placeholder': 'Profesor que imparte'
                 }
             ),
             'grupo': forms.TextInput(

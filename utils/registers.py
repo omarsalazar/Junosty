@@ -1,4 +1,4 @@
-#El proposito de esta archivo es hacer funciones que se van a necesitar en todo el proyecto
+#El proposito de este archivo es hacer funciones que se van a necesitar en todo el proyecto
 from usuario.models import datosusuario
 from django.contrib.auth.models import User
 #Esta función va a registrar al usuario.
