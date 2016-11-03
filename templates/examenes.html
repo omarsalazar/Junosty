@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="jumbotron text-center">
+  <div class="page-header"><h1>Exámenes</h1></div>
+
+              <!--Tabla con el horario-->
+              <table class="table table-striped table-hover">
+                <h4>Alertas agregadas</h4>
+                <thead>
+                  <tr>
+                      <th>Nombre</th>
+                      <th>Materia</th>
+                      <th>Descripción</th>
+                      <th>Fechas de entrega</th>
+                      <th>Tipo de alerta</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for x in tarea %}
+                      <tr>
+                        <td>{{x.id_tarea}}</td>
+                        <td>{{x.descripcion}}</td>
+                        <td>{{x.materia}}</td>
+                        <td>{{x.fecha_entrega}}</td>
+                        <td><a href="{% url 'tarea:editar' pk=x.pk %}" class="btn btn-success btn-xs">Editar</a></td>
+                        <td>
+                            <form method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="id" value="{{x.id}}">
+                                <input type="hidden" name="action" value="eliminar">
+                                <button class="btn btn-danger btn-xs" type="submit">Eliminar</button>
+                            </form>
+                        </td>
+                      </tr>
+                      {% endfor %}
+                </tbody>
+              </table>
+
+
+
+              <form class="form-horizontal" method="post">
+                <fieldset>
+                    {% csrf_token %}
+                    <input type="hidden" name="action" value="agregar">
+                  <legend>Agregar alertas</legend>
+                  <div class="form-group">
+                    <label for="nombrealerta" class="col-lg-2 control-label">Nombre</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" name="tarea" id="nombrealerta" placeholder="Nombre de la alerta">
+                    </div>
+                  </div>
+                  <input type="hidden" name="user" value="{{request.user}}">
+                  <div class="form-group">
+                      <label for="materia" class="col-lg-2 control-label">Materia</label>
+                      <div class="col-lg-10">
+                      <select id="materia" class="form-control" name="materia">
+                          {% for coso in materias %}
+                            <option value="{{coso.materia}}">{{coso.materia}}</option>
+                          {% endfor %}
+                      </select>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="textArea" name="descripcion"class="col-lg-2 control-label">Descripcion</label>
+                    <div class="col-lg-10">
+                      <textarea class="form-control" rows="3" name="descripcion" id="textArea"></textarea>
+                      <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fechaalerta" class="col-lg-2 control-label">Fecha</label>
+                    <div class="col-lg-10">
+                      <input type="date" name="fecha_entrega" class="form-control" id="fechaalerta" placeholder="Fecha de la alerta">
+                    </div>
+                  </div>
+
+
+                    <div class="form-group">
+                      <div class="col-lg-10 col-lg-offset-2">
+                        <button type="reset" class="btn btn-default">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Agregar</button>
+                      </div>
+                    </div>
+                  </fieldset>
+                </form>
+</div>
+{% else %}
+<footer class="text-center">
+  <p>Bienvenido de vuelta <a href="/usuario/login">Inicia sesión</a></p>
+
+  <p>¿Que esperas? <a href="/usuario/registro">Registrate</a></p>
+</footer>
+{% endif %}
+
+{% endblock content %}

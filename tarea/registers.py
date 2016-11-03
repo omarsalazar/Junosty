@@ -44,5 +44,3 @@ def eliminar_tareas(request):
         print('error')
         print(e)
         print(type(e))
-
-#def guardar_tarea(request):

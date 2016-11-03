@@ -1,10 +1,10 @@
 from django.conf.urls import url, include
 from django.contrib import admin
 from usuario import urls as urlsUsuario
-#from examen import urls as urlsExamen
 from materia import urls as urlsMateria
 from semestre import urls as urlsSemestre
 from tarea import urls as urlsTarea
+from examen import urls as urlsExamen
 from usuario.api import urls as materiasAPI
 
 urlpatterns = [
@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^usuario/', include(urlsUsuario, namespace='usuario')),
     url(r'^materia/', include(urlsMateria, namespace='materia')),
     url(r'^tarea/', include(urlsTarea, namespace='tarea')),
+    url(r'^examen/',include(urlsExamen, namespace='examen')),
     url(r'^semestre/', include(urlsSemestre, namespace='semestre')),
     url(r'^apiv1/', include(materiasAPI, namespace= 'apiv1')),
 ]
