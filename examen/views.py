@@ -6,7 +6,7 @@ from materia.models import datosmateria
 
 class Agregar_examen(View):
     def get(self, request):
-        template_name = 'alertas.html'
+        template_name = 'alertas_examen.html'
         try:
             examenes = examen.objects.all().filter(user=request.user)
             materias = datosmateria.objects.all()
