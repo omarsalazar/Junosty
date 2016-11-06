@@ -7,23 +7,22 @@
     <form class="form-horizontal" method="POST">
         {% csrf_token %}
       <fieldset>
-        <legend>Tus datos</legend>
+        <legend>¡Inicia sesión!</legend>
         <div class="form-group">
           <label for="boletalogin" class="col-lg-2 control-label">Boleta</label>
           <div class="col-lg-10">
-            <input type="text" name="no_boleta" class="form-control" id="boletalogin" placeholder="Número de boleta">
+            <input type="text" name="no_boleta" class="form-control" id="boletalogin" placeholder="Número de boleta" required>
           </div>
         </div>
         <div class="form-group">
           <label for="passlogin" class="col-lg-2 control-label">Contraseña</label>
           <div class="col-lg-10">
-            <input type="password" name="contrasena" class="form-control" id="passlogin" placeholder="Contraseña">
+            <input type="password" name="contrasena" class="form-control" id="passlogin" placeholder="Contraseña" required>
           </div>
         </div>
 
         <div class="form-group">
-          <div class="col-lg-10 col-lg-offset-2">
-            <button type="reset" class="btn btn-default">Cancelar</button>
+          <div class="col-lg-10 col-lg-offset-1">
             <button type="submit" class="btn btn-success">Iniciar sesión</button>
           </div>
         </div>

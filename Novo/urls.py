@@ -1,6 +1,7 @@
 from django.conf.urls import url, include
 from django.contrib import admin
 from usuario import urls as urlsUsuario
+from usuario.views import Index
 from materia import urls as urlsMateria
 from semestre import urls as urlsSemestre
 from tarea import urls as urlsTarea
@@ -9,6 +10,7 @@ from usuario.api import urls as materiasAPI
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', Index.as_view(), name='index'),
     url(r'^usuario/', include(urlsUsuario, namespace='usuario')),
     url(r'^materia/', include(urlsMateria, namespace='materia')),
     url(r'^tarea/', include(urlsTarea, namespace='tarea')),

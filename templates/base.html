@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
   <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+  <title>Junosty</title>
 
   <!-- SPELLS -->
   <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
@@ -26,14 +27,17 @@
       </div>
 
       <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
         <li><a href="/usuario/perfil"><i class="fa fa-user"></i> Perfil</a></li>
+        <li><a href="/materia/horario"><i class="fa fa-pencil"></i> Materias</a></li>
         <li><a href="/semestre/horario"><i class="fa fa-clock-o"></i> Horario</a></li>
         <li><a href="/tarea/alertas"><i class="fa fa-bell"></i> Tareas</a></li>
         <li><a href="/examen/alertas"><i class="fa fa-bell"></i> Examenes</a></li>
-        <li><a href="/materia/horario"><i class="fa fa-pencil"></i> Materias</a></li>
-        {% if user.is_authenticated %}
         <li><a href="/usuario/logout"><i class="fa fa-user"></i> Cerrar Sesion</a></li>
+        {%else%}
+        <li><a href="/usuario/index"><i class = "fa fa-circle-o"></i> Inicio</a></li>
         {% endif %}
+
       </ul>
     </div>
   </nav>
