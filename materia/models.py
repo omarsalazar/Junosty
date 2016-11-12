@@ -21,3 +21,9 @@ class horas(models.Model):
     fin = models.CharField(blank=True, null=True, max_length=30)
     fecha = models.CharField(blank=True, null=True, max_length=30)
     materia = models.ForeignKey(datosmateria, blank=False, null=False, related_name='materias')
+
+class  semana(models.Model):
+    dia =  models.CharField(blank=False, null=False, max_length=10)
+    horai = models.CharField(blank=True, null=False, max_length=6)
+    horaf = models.CharField(blank=True, null=False, max_length=6) 
+    materia = models.ForeignKey(datosmateria, blank=False, null=False)

@@ -16,18 +16,21 @@ class MateriaForm(forms.ModelForm):
                 attrs = {
                     'class': 'form-control',
                     'placeholder': 'Nombre de la materia'
+                    'required'
                 }
             ),
             'profesor': forms.TextInput(
                 attrs = {
                     'class': 'form-control',
                     'placeholder': 'Profesor que imparte'
+                    'required'
                 }
             ),
             'grupo': forms.TextInput(
                 attrs = {
                     'class': 'form-control',
                     'placeholder': 'Grupo de la materia'
+                    'required'
                 }
             ),
         }
