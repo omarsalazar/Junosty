@@ -4,7 +4,7 @@
 {% block content %}
 <div class="jumbotron text-center">
   <div class="page-header"><h1>Registro</h1></div>
-    <form class="form-horizontal" method="post">
+    <form class="form-horizontal" >
         {% csrf_token %}
       <fieldset>
         <legend>Llena los campos</legend>
@@ -51,7 +51,7 @@
         </div>
         <div class="form-group">
           <div class="col-lg-10 col-lg-offset-1">
-            <button type="submit" onclick="enviando();" class="btn btn-success">Registrarse</button>
+            <button onclick="enviando();" class="btn btn-success">Registrarse</button>
           </div>
         </div>
       </fieldset>

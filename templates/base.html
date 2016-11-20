@@ -27,10 +27,13 @@
           email = $('#email').val();
           password = $('#pass').val();
           name = $('#materiaalerta').val();
-          last_name = $('apregistro').val();
-          boleta = $('boletaregistro').val()
+          last_name = $('#apregistro').val();
+          boleta = $('#boletaregistro').val()
           console.log(email);
           console.log(password);
+          console.log(name);
+          console.log(last_name);
+          console.log(boleta);
         // var ref = new firebase.database().ref().child('Users');
         //     ref.push({
         //       Nombre: 'holis',
@@ -47,6 +50,9 @@
           } else {
             alert(errorMessage);
           }
+          else if (error == null){
+              console.log('todo oc ');
+          }
           console.log('todo oc mami');
           console.log(error);
           // [END_EXCLUDE]
@@ -61,7 +67,7 @@
           } else {
             alert(errorMessage);
           }
-          if(error != null){
+          if(error == null){
               alert('no hubo ningun error');
               uid = authData.uid;
           }
