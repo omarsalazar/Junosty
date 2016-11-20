@@ -10,7 +10,42 @@
   <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
   <title>Junosty</title>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+  <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+  <script>
+	var config = {
+        apiKey: "AIzaSyAYauqF86mGkJgNeeocAnwIrdOqvpVYyzI",
+        authDomain: "ving-328c9.firebaseapp.com",
+        databaseURL: "https://ving-328c9.firebaseio.com",
+        storageBucket: "gs://ving-328c9.appspot.com",
+      };
+      firebase.initializeApp(config);
+      function enviando(){
+          //console.log("shimon" + jQuery('#cotiza').val())
+          email = 'salazarpazomar@gmail.com'
+          password = '1234Holamundo'
+        // var ref = new firebase.database().ref().child('Users');
+        //     ref.push({
+        //       Nombre: 'holis',
+        //       Boleta: '212321',
+        //     });
+        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // [START_EXCLUDE]
+          if (errorCode == 'auth/weak-password') {
+            alert('The password is too weak.');
+          } else {
+            alert(errorMessage);
+          }
+          console.log(error);
+          // [END_EXCLUDE]
+        });
 
+      }
+</script>
   <!-- SPELLS -->
   <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
@@ -49,7 +84,7 @@
     <!-- <div ng-view></div> -->
     {% block content %}{% endblock content %}
   </div>
-
+	<button onclick="enviando();">Hola</button>
 
 </body>
 
