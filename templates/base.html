@@ -23,13 +23,14 @@
       firebase.initializeApp(config);
       function enviando(){
           //console.log("shimon" + jQuery('#cotiza').val())
-          email = $('#email').val()
-          password = $('#pass').val()
+          email = $('#email').val();
+          password = $('#pass').val();
         // var ref = new firebase.database().ref().child('Users');
         //     ref.push({
         //       Nombre: 'holis',
         //       Boleta: '212321',
         //     });
+
         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
           // Handle Errors here.
           var errorCode = error.code;
@@ -40,6 +41,7 @@
           } else {
             alert(errorMessage);
           }
+          console.log('todo oc mami');
           console.log(error);
           // [END_EXCLUDE]
         });
