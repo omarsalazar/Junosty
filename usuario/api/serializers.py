@@ -25,6 +25,7 @@ class HorarioSerializer(serializers.ModelSerializer):
         model = datoshorario
         fields = ('user', 'semestre','horarios')
         depth = 1
+        paginate_by = None
 
 
 #Esta es la API de la app "usuario"
