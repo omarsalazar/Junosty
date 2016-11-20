@@ -20,11 +20,17 @@
         databaseURL: "https://ving-328c9.firebaseio.com",
         storageBucket: "gs://ving-328c9.appspot.com",
       };
+      var uid = '';
       firebase.initializeApp(config);
       function enviando(){
           //console.log("shimon" + jQuery('#cotiza').val())
           email = $('#email').val();
           password = $('#pass').val();
+          name = $('#materiaalerta').val();
+          last_name = $('apregistro').val();
+          boleta = $('boletaregistro').val()
+          console.log(email);
+          console.log(password);
         // var ref = new firebase.database().ref().child('Users');
         //     ref.push({
         //       Nombre: 'holis',
@@ -45,6 +51,33 @@
           console.log(error);
           // [END_EXCLUDE]
         });
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error, authData) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // [START_EXCLUDE]
+          if (errorCode === 'auth/wrong-password') {
+            alert('Wrong password.');
+          } else {
+            alert(errorMessage);
+          }
+          if(error != null){
+              alert('no hubo ningun error');
+              uid = authData.uid;
+          }
+          console.log(error);
+
+          // [END_EXCLUDE]
+        });
+        var ref = new firebase.database().ref().child('Users').child(uid);
+            ref.set({
+              nombre: name,
+              apellidos: last_name,
+              boleta: boleta,
+              contrasena: password
+            });
+        firebase.auth().signOut();
+
 
       }
 </script>
