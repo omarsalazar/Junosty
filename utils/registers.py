@@ -11,6 +11,7 @@ def registro(datosRegistro):
         usuario.no_boleta = datosRegistro.get('no_boleta')
         usuario.carrera = datosRegistro.get('carrera')
         usuario.contrasena = datosRegistro.get('contrasena')
+        usuario.correo = datosRegistro.get('correo')
         usuario.save()
     except Exception as e:
         print(e)

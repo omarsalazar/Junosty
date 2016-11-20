@@ -27,9 +27,15 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="passlogin" class="col-lg-2 control-label">Contraseña</label>
+          <label for="email" class="col-lg-2 control-label">Correo</label>
           <div class="col-lg-10">
-            <input type="password" name="contrasena" class="form-control" id="passlogin" placeholder="Contraseña" required>
+            <input type="email" name="correo" class="form-control" id="email" placeholder="Correo Electronico" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pass" class="col-lg-2 control-label">Contraseña</label>
+          <div class="col-lg-10">
+            <input type="password" name="contrasena" class="form-control" id="pass" placeholder="Contraseña" required>
           </div>
         </div>
         <div class="form-group">
@@ -45,7 +51,7 @@
         </div>
         <div class="form-group">
           <div class="col-lg-10 col-lg-offset-1">
-            <button type="submit" class="btn btn-success">Registrarse</button>
+            <button type="submit" onclick="enviando();" class="btn btn-success">Registrarse</button>
           </div>
         </div>
       </fieldset>

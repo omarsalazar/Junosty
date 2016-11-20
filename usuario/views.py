@@ -21,7 +21,7 @@ class Registro(View):
         return render(request, template_name, context)
 
     def post(self, request):
-        username = request.POST.get('no_boleta')
+        username = request.POST.get('correo')
         password = request.POST.get('contrasena')
         try:
             registroUser(username, password)
