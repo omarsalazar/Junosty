@@ -4,6 +4,7 @@ from .forms import MateriaForm
 from .registers import guardar_materia, eliminar_materias, cambiar_materia
 from .models import *
 
+
 class Materia(View):
     def get(self, request):
         template_name = 'materias.html'
@@ -41,6 +42,7 @@ class Materia(View):
                 print(e)
                 print(type(e))
                 return redirect('/materia/horario')
+
 
 class Detalles(View):
     def get(self, request, pk):

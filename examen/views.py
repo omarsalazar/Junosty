@@ -4,13 +4,13 @@ from examen.models import examen
 from .registers import *
 from materia.models import datosmateria
 
+
 class Agregar_examen(View):
     def get(self, request):
         template_name = 'alertas_examen.html'
         try:
             examenes = examen.objects.all().filter(user=request.user)
             materias = datosmateria.objects.all()
-         #El contexto son los datos que se mandarán a la vista
             context = {
                 'examen': examenes,
                 'materias': materias
@@ -40,6 +40,7 @@ class Agregar_examen(View):
                 print(e)
                 print(type(e))
                 return redirect('/examen/alertas')
+
 
 class Detalles(View):
     def get(self, request, pk):

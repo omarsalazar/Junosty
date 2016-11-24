@@ -10,11 +10,12 @@ from examen.models import examen, alarmaexamen, repeticionexamen
 from tarea .models import tarea, alarmatarea, repeticiontarea
 from .serializers import *
 
-#Recuerda importar todo lo que necesites.
-#Vistas de la API de los datos de la app "materia".
-@api_view(['GET', 'POST'])
 
+@api_view(['GET', 'POST'])
 def horario_list(request):
+    """API de materias
+    vista API (app datos horario)
+    """
     try:
         horario = datoshorario.objects.all()
     except Exception as e:
@@ -24,11 +25,12 @@ def horario_list(request):
         serializer = HorarioSerializer(horario, many=True)
         return Response(serializer.data)
 
-#Vistas de la API de los datos de la app "usuario".
-#View de la API de los datos del usuario.
-@api_view(['GET', 'POST'])
 
+@api_view(['GET', 'POST'])
 def usuario_list(request):
+    """API datos usuario
+    vista API(app usuario)
+    """
     try:
         usuario_obj = datosusuario.objects.all()
     except Exception as e:
@@ -38,11 +40,12 @@ def usuario_list(request):
         serializer = UsuarioSerializer(usuario_obj, many=True)
         return Response(serializer.data)
 
-#Vistas de la API de la app "semestre"
-#View de la API de los datos del semestre
-@api_view(['GET', 'POST'])
 
+@api_view(['GET', 'POST'])
 def semestre_list(request):
+    """API de semestre
+    vista API (app semestre)
+    """
     try:
         semestre_obj = semestre.objects.all()
     except Exception as e:
@@ -52,10 +55,12 @@ def semestre_list(request):
         serializer = SemestreSerializer(semestre_obj, many=True)
         return Response(serializer.data)
 
-#View de la API de los datos de las vacaciones
-@api_view(['GET', 'POST'])
 
+@api_view(['GET', 'POST'])
 def vacaciones_list(request):
+    """API de vacaciones
+    vista API (app semestre)
+    """
     try:
         vacaciones_obj = vacaciones.objects.all()
     except Exception as e:
@@ -65,11 +70,12 @@ def vacaciones_list(request):
         serializer = VacacionesSerializer(vacaciones_obj, many=True)
         return Response(serializer.data)
 
-#Vistas de la API de la app "examen"
-#View de la API de los datos de examen
-@api_view(['GET', 'POST'])
 
+@api_view(['GET', 'POST'])
 def examen_list(request):
+    """API de examenes
+    vista API (app examen)
+    """
     try:
         examen_obj = examen.objects.all()
     except Exception as e:
@@ -79,10 +85,12 @@ def examen_list(request):
         serializer = ExamenSerializer(examen_obj, many=True)
         return Response(serializer.data)
 
-#View de la API de las alarmas de examenes
-@api_view(['GET', 'POST'])
 
+@api_view(['GET', 'POST'])
 def alarmaexamen_list(request):
+    """API de alarma de examenes
+    vista API (app examen)
+    """
     try:
         alarmaexamen_obj = alarmaexamen.objects.all()
     except Exception as e:
@@ -92,24 +100,30 @@ def alarmaexamen_list(request):
         serializer = AlarmaExamenSerializer(alarmaexamen_obj, many=True)
         return Response(serializer.data)
 
-#View de la API de la repeticion de las alarmas
-@api_view(['GET', 'POST'])
 
+@api_view(['GET', 'POST'])
 def repeticionalarmaexamen_list(request):
+    """API de hora de alarma de examenes
+    vista API (app examen)
+    """
     try:
         repeticionalarmaexamen_obj = repeticionalarmaexamen.objects.all()
     except Exception as e:
         print(e)
         print(type(e))
     if request.method == 'GET':
-        serializer = RepeticionAlarmaExamenSerializer(repeticionalarmaexamen_obj, many=True)
+        serializer = RepeticionAlarmaExamenSerializer(
+            repeticionalarmaexamen_obj,
+            many=True
+            )
         return Response(serializer.data)
 
-#Vistas de la API de la app "tarea"
-#View de la API de los datos de tarea
-@api_view(['GET', 'POST'])
 
+@api_view(['GET', 'POST'])
 def tarea_list(request):
+    """API de tareas
+    vista API (app tarea)
+    """
     try:
         tarea_obj = tarea.objects.all()
     except Exception as e:
@@ -119,10 +133,12 @@ def tarea_list(request):
         serializer = TareaSerializer(tarea_obj, many=True)
         return Response(serializer.data)
 
-#View de la API de las alarmas de tareas
-@api_view(['GET', 'POST'])
 
+@api_view(['GET', 'POST'])
 def alarmatarea_list(request):
+    """API de hora de alarma tarea
+    vista API (app tarea)
+    """
     try:
         alarmatarea_obj = alarmatarea.objects.all()
     except Exception as e:
@@ -132,15 +148,20 @@ def alarmatarea_list(request):
         serializer = AlarmaTareaSerializer(alarmatarea_obj, many=True)
         return Response(serializer.data)
 
-#View de la API de la repeticion de las alarmas
-@api_view(['GET', 'POST'])
 
+@api_view(['GET', 'POST'])
 def repeticionalarmatarea_list(request):
+    """API repeticion hora de alarma tarea
+    vista API (app tarea)
+    """
     try:
         repeticionalarmatarea_obj = repeticionalarmatarea.objects.all()
     except Exception as e:
         print(e)
         print(type(e))
     if request.method == 'GET':
-        serializer = RepeticionAlarmaTareaSerializer(repeticionalarmatarea_obj, many=True)
+        serializer = RepeticionAlarmaTareaSerializer(
+            repeticionalarmatarea_obj,
+            many=True
+            )
         return Response(serializer.data)

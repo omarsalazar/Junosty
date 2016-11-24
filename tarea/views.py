@@ -4,13 +4,13 @@ from tarea.models import tarea
 from .registers import *
 from materia.models import datosmateria
 
+
 class Agregar_tarea(View):
     def get(self, request):
         template_name = 'alertas.html'
         try:
             tareas = tarea.objects.all().filter(user=request.user)
             materias = datosmateria.objects.all()
-         #El contexto son los datos que se mandarán a la vista
             context = {
                 'tarea': tareas,
                 'materias': materias
@@ -40,6 +40,7 @@ class Agregar_tarea(View):
                 print(e)
                 print(type(e))
                 return redirect('/tarea/alertas')
+
 
 class Detalles(View):
     def get(self, request, pk):

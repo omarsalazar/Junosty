@@ -6,10 +6,12 @@ from django.contrib.auth import login, logout, authenticate
 from utils.registers import registro, modificaUsuario, registroUser
 # Create your views here.
 
+
 class Perfil(View):
     def get(self, request):
         template_name = 'perfil.html'
         return render(request, template_name)
+
 
 class Registro(View):
     def get(self, request):
@@ -35,8 +37,7 @@ class Registro(View):
             print(type(e))
             return redirect('usuario:registro')
 
-#Aquí se crea un método get y post para mandar y recibir los datos del login uwu
-#El metodo get renderiza la vista y el post los datos de la vista renderizada #ConocimientoPicosito
+
 class Login(View):
     def get(self, request):
         template_name = 'login.html'
@@ -60,6 +61,7 @@ class Login(View):
         else:
             return redirect('usuario:login')
 
+
 class Index(View):
     def get(self, request):
         template_name = 'index.html'
@@ -68,6 +70,7 @@ class Index(View):
 def Logout(request):
     logout(request)
     return redirect('usuario:login')
+
 
 class ModificarDatos(View):
     def get(self, request):

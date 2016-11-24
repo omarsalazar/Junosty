@@ -2,6 +2,7 @@ from .models import *
 from semestre.models import *
 import uuid
 
+
 def guardar_materia(request):
     horario = datoshorario()
     materia = datosmateria()
@@ -36,7 +37,9 @@ def guardar_materia(request):
             print(e)
             print(type(e))
         try:
-            hora.materia = materia.objects.get(materia=request.POST.get('materia'))
+            hora.materia = materia.objects.get(
+                materia=request.POST.get('materia')
+                )
             hora.save()
         except Exception as e:
             print(e)
@@ -54,7 +57,9 @@ def guardar_materia(request):
             print(e)
             print(type(e))
         try:
-            hora.materia = materia.objects.get(materia=request.POST.get('materia'))
+            hora.materia = materia.objects.get(
+                materia=request.POST.get('materia')
+                )
             hora.save()
         except Exception as e:
             print(e)
@@ -83,11 +88,14 @@ def guardar_materia(request):
             print(e)
             print(type(e))
         try:
-            hora.materia = materia.objects.get(materia=request.POST.get('materia'))
+            hora.materia = materia.objects.get(
+                materia=request.POST.get('materia')
+                )
             hora.save()
         except Exception as e:
             print(e)
             print(type(e))
+
 
 def eliminar_materias(request):
     materia = request.POST.get('id')
@@ -98,6 +106,7 @@ def eliminar_materias(request):
         print('error')
         print(e)
         print(type(e))
+
 
 def cambiar_materia(request):
     materia = request.POST.get('id')

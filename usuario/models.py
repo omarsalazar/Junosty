@@ -2,6 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class datosusuario(models.Model):
     user = models.OneToOneField(User, blank=True, null=True)
     nombre = models.CharField(blank=False, null=False, max_length=50)

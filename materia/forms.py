@@ -2,6 +2,7 @@ from django import forms
 from .models import *
 from django.utils.translation import ugettext_lazy as _
 
+
 class MateriaForm(forms.ModelForm):
     class Meta:
         model = datosmateria
@@ -13,21 +14,21 @@ class MateriaForm(forms.ModelForm):
         }
         widgets = {
             'materia': forms.TextInput(
-                attrs = {
+                attrs={
                     'class': 'form-control',
                     'placeholder': 'Nombre de la materia'
                     'required'
                 }
             ),
             'profesor': forms.TextInput(
-                attrs = {
+                attrs={
                     'class': 'form-control',
                     'placeholder': 'Profesor que imparte'
                     'required'
                 }
             ),
             'grupo': forms.TextInput(
-                attrs = {
+                attrs={
                     'class': 'form-control',
                     'placeholder': 'Grupo de la materia'
                     'required'

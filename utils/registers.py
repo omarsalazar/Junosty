@@ -1,7 +1,7 @@
-#El proposito de este archivo es hacer funciones que se van a necesitar en todo el proyecto
 from usuario.models import datosusuario
 from django.contrib.auth.models import User
-#Esta función va a registrar al usuario.
+
+
 def registro(datosRegistro):
     try:
         usuario = datosusuario()
@@ -17,12 +17,14 @@ def registro(datosRegistro):
         print(e)
         print(type(e))
 
+
 def registroUser(username, password):
     try:
-        User.objects.create_user(username=username,password=password)
+        User.objects.create_user(username=username, password=password)
     except Exception as e:
         print(e)
         print(type(e))
+
 
 def modificaUsuario(datosRegistro):
     try:
