@@ -9,7 +9,7 @@ class datosusuario(models.Model):
     apellidos = models.CharField(blank=False, null=False, max_length=100)
     no_boleta = models.CharField(blank=False, null=False, max_length=10)
     contrasena = models.CharField(blank=False, null=False, max_length=100)
-    correo = models.EmailField(blank=False, null=False, max_length=100)
+    correo = models.EmailField(blank=True, null=True, max_length=100)
 
     def __str__(self):
         return "{}".format(self.nombre)

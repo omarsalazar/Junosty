@@ -17,7 +17,7 @@ def horario_list(request):
     vista API (app datos horario)
     """
     try:
-        horario = datoshorario.objects.all()
+        horario = datoshorario.objects.filter(user=request.user)
     except Exception as e:
         print(e)
         print(type(e))

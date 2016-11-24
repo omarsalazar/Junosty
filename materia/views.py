@@ -50,9 +50,7 @@ class Detalles(View):
         try:
             hora = horas.objects.all().filter(materia=materia)
         except:
-            hora = {
-
-            }
+            hora = 'nada'
         print(hora)
         template_name = 'materia_detail.html'
         context = {

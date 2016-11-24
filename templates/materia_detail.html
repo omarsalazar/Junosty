@@ -53,8 +53,76 @@
 
                   </div>
                 </div>
+                {% for hora in horas %}
+                    <div class="form-group">
+                        <label for="dia" class="col-lg-2 control-label">{{hora.materia}}</label>
+                        <div class="col-lg-10">
+                          <div class="perro_master">
+                              <select class="form-control perro_master" name="dia">
+                                  <option value="{{hora.fecha}}"selected>{{hora.fecha}}</option>
+                                  <option value="Martes">Martes</option>
+                                  <option value="Miercoles">Miercoles</option>
+                                  <option value="Jueves">Jueves</option>
+                                  <option value="Viernes">Viernes</option>
+                                  <option value="Sabado">Sabado</option>
+                                  <option value="Domingo">Domingo</option>
+                              </select>
+                          </div>
+                          <div class="perro_master">
+                              <select class="form-control perro_master" name="hora">
+                                  <option value="{{hora.hora}}"selected>{{hora.hora}}</option>
+                                  <option value="8:00">8:00</option>
+                                  <option value="9:00">9:00</option>
+                                  <option value="10:00">10:00</option>
+                                  <option value="11:00">11:00</option>
+                                  <option value="12:00">12:00</option>
+                                  <option value="13:00">13:00</option>
+                                  <option value="14:00">14:00</option>
+                                  <option value="15:00">15:00</option>
+                                  <option value="16:00">16:00</option>
+                                  <option value="17:00">17:00</option>
+                                  <option value="18:00">18:00</option>
+                                  <option value="19:00">19:00</option>
+                                  <option value="20:00">20:00</option>
+                                  <option value="21:00">21:00</option>
+                                  <option value="22:00">22:00</option>
+                              </select>
+                          </div>
+                          <div class="perro_master">
+                              <select class="form-control perro_master" name="fin">
+                                  <option value="{{hora.fin}}"selected>{{hora.fin}}</option>
+                                  <option value="8:00">8:00</option>
+                                  <option value="9:00">9:00</option>
+                                  <option value="10:00">10:00</option>
+                                  <option value="11:00">11:00</option>
+                                  <option value="12:00">12:00</option>
+                                  <option value="13:00">13:00</option>
+                                  <option value="14:00">14:00</option>
+                                  <option value="15:00">15:00</option>
+                                  <option value="16:00">16:00</option>
+                                  <option value="17:00">17:00</option>
+                                  <option value="18:00">18:00</option>
+                                  <option value="19:00">19:00</option>
+                                  <option value="20:00">20:00</option>
+                                  <option value="21:00">21:00</option>
+                                  <option value="22:00">22:00</option>
+                              </select>
+
+                          </div>
+                          <div style="clear:both"></div>
+                          <a href="" class="btn btn-success btn-xs">Editar</a>
+                          <form method="post">
+                              {% csrf_token %}
+                              <button class="btn btn-danger btn-xs">Eliminar</button>
+                          </form>
+                          <div style="clear:both"></div>
+                          <br>
+                        </div>
+
+                    </div>
+                {% endfor %}
                 <div class="form-group">
-                    <label for="dia" class="col-lg-2 control-label">Horario</label>
+                    <label for="dia" class="col-lg-2 control-label">Nuevo Horario</label>
                     <div class="col-lg-10">
                       <div class="perro_master">
                           <select class="form-control perro_master" name="dia">
