@@ -20,18 +20,65 @@
                 </thead>
 
                 <tbody>
+                {% for mate in materita %}
+
+
                   <tr>
-                    <td>6IV3</td>
-                    <td>Fisica IV</td>
-                    <td>Diaz Monroy Gilberto Gamaliel</td>
-                    <td>12:00-14:00</td>
-                    <td></td>
-                    <td>18:00-19:00</td>
-                    <td>17:00-19:00</td>
-                    <td></td>
+                    <td>{{mate.grupo}}</td>
+                    <td>{{mate.materia}}</td>
+                    <td>{{mate.profesor}}</td>
+                    <td>
+                        {% for ho in horitas %}
+                            {% if mate == ho.materia %}
+                                {% if ho.fecha == 'Lunes' %}
+                                    {{ho.hora}}-{{ho.fin}}
+                                {% endif %}
+
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for ho in horitas %}
+                            {% if mate == ho.materia %}
+                                {% if ho.fecha == 'Martes' %}
+                                    {{ho.hora}}-{{ho.fin}}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for ho in horitas %}
+                            {% if mate == ho.materia %}
+                                {% if ho.fecha == 'Miercoles' %}
+                                    {{ho.hora}}-{{ho.fin}}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for ho in horitas %}
+                            {% if mate == ho.materia %}
+                                {% if ho.fecha == 'Jueves' %}
+                                    {{ho.hora}}-{{ho.fin}}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for ho in horitas %}
+                            {% if mate == ho.materia %}
+                                {% if ho.fecha == 'Viernes' %}
+                                    {{ho.hora}}-{{ho.fin}}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
                   </tr>
+                  {% endfor %}
+
                 </tbody>
               </table>
+
 </div>
 {% else %}
 <footer class="text-center">
