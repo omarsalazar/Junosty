@@ -8,7 +8,7 @@
 	<div class="page-header"><h1>Perfil</h1></div>
 	<div class="page-header"><h1>{{ message }}</h1></div>
 
-	<img class="" src="{% static 'qr.png' %}">
+	<img class="" src="{{request.user.datosusuario.qr}}">
 	<p>{{request.user.datosusuario.no_boleta}}</p>
     <p>{{request.user.datosusuario.nombre}}</p>
     <a href= "/usuario/modificardatos" class="btn btn-default" ng-model="checked" aria-label="Toggle ngHide">Modificar perfil</a><br/>

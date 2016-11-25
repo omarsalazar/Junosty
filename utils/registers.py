@@ -1,5 +1,6 @@
 from usuario.models import datosusuario
 from django.contrib.auth.models import User
+from usuario.models import datosusuario
 from django.core.exceptions import ObjectDoesNotExist
 from materia.models import horas
 

@@ -7,6 +7,8 @@ from semestre import urls as urlsSemestre
 from tarea import urls as urlsTarea
 from examen import urls as urlsExamen
 from usuario.api import urls as materiasAPI
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -17,4 +19,4 @@ urlpatterns = [
     url(r'^examen/', include(urlsExamen, namespace='examen')),
     url(r'^semestre/', include(urlsSemestre, namespace='semestre')),
     url(r'^apiv1/', include(materiasAPI, namespace='apiv1')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
