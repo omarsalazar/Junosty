@@ -76,7 +76,7 @@ def Logout(request):
 
 class ModificarDatos(View):
     def get(self, request):
-        template_name = 'usuario/modificar.html'
+        template_name = 'modificar.html'
         form = modificarForm()
         context = {
             'form': form,
@@ -90,4 +90,4 @@ class ModificarDatos(View):
         except Exception as e:
             print(e)
             print(type(e))
-            return redirect('usuario:modficar')
+            return redirect('usuario:modificar')
