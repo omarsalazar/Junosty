@@ -16,16 +16,27 @@ jQuery(document).ready(function(){
 
     (function( jQuery ){
        jQuery.fn.editar_hora = function(aidi) {
-           c_token = $().get_csrf();
+           console.log('holis');
+           c_token = jQuery().get_csrf();
            jQuery.ajax({
                method: 'POST',
                url: '/materia/detalle/20/',
                headers: {
-                   'x-csrftoken': hoho
+                   'x-csrftoken': c_token
                },
                data: {
-                   idi: aidi,
-                   status: 'editar'
+                   aidi: aidi,
+                   action: 'editar_hora',
+                   hora: jQuery('#hora-'+aidi).val(),
+                   fin: jQuery('#fin-'+aidi).val(),
+                   dia: jQuery('#dia-'+aidi).val()
+               },
+               success: function (data, status, jqXRH) {
+                   alert(status);
+                   location.reload();
+               },
+               error: function(jqXRH, status, throwStatus) {
+                   alert(status);
                }
            });
        };
@@ -33,16 +44,25 @@ jQuery(document).ready(function(){
 
     (function( jQuery ){
        jQuery.fn.eliminar_hora = function(aidi) {
-           c_token = $().get_csrf();
+           c_token = jQuery().get_csrf();
            jQuery.ajax({
                method: 'POST',
                url: '/materia/detalle/20/',
                headers: {
-                   'x-csrftoken': hoho
+                   'x-csrftoken': c_token
                },
                data: {
-                   idi: aidi,
-                   status: 'eliminar'
+                   aidi: aidi,
+                   action: 'eliminar_hora',
+                   hora: jQuery('#hora-'+aidi).val(),
+                   fin: jQuery('#fin-'+aidi).val(),
+                   dia: jQuery('#dia-'+aidi).val()
+               },
+               success: function (data, status, jqXRH) {
+                   alert(status);
+               },
+               error: function(jqXRH, status, throwStatus) {
+                   alert(status);
                }
            });
        };

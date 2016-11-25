@@ -133,7 +133,7 @@
                         <label for="dia" class="col-lg-2 control-label">{{hora.materia}}</label>
                         <div class="col-lg-10">
                           <div class="perro_master">
-                              <select class="form-control perro_master" id="{{hora.id}}" name="dia">
+                              <select class="form-control perro_master" id="dia-{{hora.id}}" name="dia">
                                   <option value="{{hora.fecha}}"selected>{{hora.fecha}}</option>
                                   <option value="Lunes">Lunes</option>
                                   <option value="Martes">Martes</option>
@@ -145,7 +145,7 @@
                               </select>
                           </div>
                           <div class="perro_master">
-                              <select class="form-control perro_master" id="{{hora.id}}" name="hora">
+                              <select class="form-control perro_master" id="hora-{{hora.id}}" name="hora">
                                   <option value="{{hora.hora}}"selected>{{hora.hora}}</option>
                                   <option value="7:00">7:00</option>
                                   <option value="8:00">8:00</option>
@@ -166,7 +166,7 @@
                               </select>
                           </div>
                           <div class="perro_master">
-                              <select class="form-control perro_master" id="{{hora.id}}" name="fin">
+                              <select class="form-control perro_master" id="fin-{{hora.id}}" name="fin">
                                   <option value="{{hora.fin}}"selected>{{hora.fin}}</option>
                                   <option value="7:00">7:00</option>
                                   <option value="8:00">8:00</option>
@@ -189,13 +189,12 @@
                           </div>
                           <div style="clear:both"></div>
 
-                          <button class="btn btn-success btn-xs" onclick="$().eliminar_medicamento({{hora.id}});">Editar</button>
-                          <button class="btn btn-danger btn-xs" onclick="$().eliminar_medicamento({{hora.id}});">Eliminar</button>
-                          
+                          <button class="btn btn-success btn-xs" onclick="jQuery().editar_hora({{hora.id}});">Editar</button>
+                          <button class="btn btn-danger btn-xs" onclick="jQuery().eliminar_hora({{hora.id}});">Eliminar</button>
+
                           <div style="clear:both"></div>
                           <br>
-                        </div>
-
+                      </div>
                     </div>
                 {% endfor %}
 
