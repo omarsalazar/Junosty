@@ -3,6 +3,8 @@ from django.views.generic import View
 from .forms import MateriaForm
 from .registers import guardar_materia, eliminar_materias, cambiar_materia
 from .models import *
+from django.http import HttpResponseRedirect
+from utils.registers import cambiar_hora, eliminar_hora
 
 
 class Materia(View):
@@ -60,10 +62,25 @@ class Detalles(View):
         return render(request, template_name, context)
 
     def post(self, request, pk):
-        try:
-            cambiar_materia(request)
-            return redirect('/materia/horario')
-        except Exception as e:
-            print(e)
-            print(type(e))
-            return redirect('/materia/horario')
+        action = request.POST.get('action')
+        print(action)
+        if action == 'editar':
+            try:
+                cambiar_materia(request)
+                return redirect('/materia/horario')
+            except Exception as e:
+                print(e)
+                print(type(e))
+                return HttpResponseRedirect('.')
+        elif action == 'editar_hora':
+            try:
+                cambiar_hora(request)
+                return HttpResponseRedirect('.')
+            except:
+                return HttpResponseRedirect('.')
+        elif action == 'eliminar_hora':
+            try:
+                eliminar_hora(request)
+                return HttpResponseRedirect('.')
+            except:
+                return HttpResponseRedirect('.')

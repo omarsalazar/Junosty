@@ -1,5 +1,7 @@
 from usuario.models import datosusuario
 from django.contrib.auth.models import User
+from django.core.exceptions import ObjectDoesNotExist
+from materia.models import horas
 
 
 def registro(datosRegistro):
@@ -36,6 +38,34 @@ def modificaUsuario(datosRegistro):
         user.set_password(datosRegistro.POST.get('contrasena'))
         usuario.save()
         user.save()
+    except Exception as e:
+        print(e)
+        print(type(e))
+
+
+def cambiar_hora(request):
+    print('llego a cambiar hora')
+    try:
+        hora = horas.objects.get(id=request.POST.get('aidi'))
+        hora.fin = request.POST.get('fin')
+        hora.hora = request.POST.get('hora')
+        hora.fecha = request.POST.get('dia')
+        hora.save()
+    except horas.DoesNotExist as e:
+        print(e)
+        print(type(e))
+    except Exception as e:
+        print(e)
+        print(type(e))
+
+
+def eliminar_hora(request):
+    try:
+        hora = horas.objects.all().filter(id=request.POST.get('aidi'))
+        hora.delete()
+    except horas.DoesNotExist:
+        print(e)
+        print(type(e))
     except Exception as e:
         print(e)
         print(type(e))
