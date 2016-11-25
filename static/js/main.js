@@ -37,6 +37,7 @@ jQuery(document).ready(function(){
                },
                error: function(jqXRH, status, throwStatus) {
                    alert(status);
+                   location.reload();
                }
            });
        };
@@ -60,9 +61,11 @@ jQuery(document).ready(function(){
                },
                success: function (data, status, jqXRH) {
                    alert(status);
+                   location.reload();
                },
                error: function(jqXRH, status, throwStatus) {
                    alert(status);
+                   location.reload();
                }
            });
        };
