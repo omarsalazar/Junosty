@@ -26,7 +26,6 @@ def cambiar_tarea(datosTarea):
         tareita = tarea.objects.get(id=(datosTarea.get('id')))
         tareita.id_tarea = datosTarea.get('tarea')
         tareita.descripcion = datosTarea.get('descripcion')
-        print(datosTarea.get('materia'))
         obj_materia = datosmateria.objects.get(
             materia=datosTarea.get('materia')
             )
