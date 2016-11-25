@@ -69,6 +69,7 @@ class Index(View):
         template_name = 'index.html'
         return render(request, template_name)
 
+
 def Logout(request):
     logout(request)
     return redirect('usuario:login')

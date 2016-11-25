@@ -29,15 +29,29 @@ def registroUser(username, password):
 
 
 def modificaUsuario(datosRegistro):
+    print('llego')
     try:
         user = User.objects.get(username=datosRegistro.user.username)
         usuario = datosusuario.objects.get(user=user)
-        usuario.nombre = datosRegistro.POST.get('nombre')
-        usuario.apellidos = datosRegistro.POST.get('apellidos')
-        usuario.contrasena = datosRegistro.POST.get('contrasena')
-        user.set_password(datosRegistro.POST.get('contrasena'))
+        if datosRegistro.POST.get('usuario') is None or '':
+            pass
+        else:
+            usuario.nombre = datosRegistro.POST.get('usuario')
+        if datosRegistro.POST.get('apellidos') is None or '':
+            pass
+        else:
+            usuario.apellidos = datosRegistro.POST.get('apellidos')
+        if datosRegistro.POST.get('contrasena') is None or '':
+            user.set_password(datosRegistro.POST.get('contrasena'))
+            usuario.contrasena = datosRegistro.POST.get('contrasena')
         usuario.save()
         user.save()
+    except User.DoesNotExist as e:
+        print(e)
+        print(type(e))
+    except datosusuario.DoesNotExist as e:
+        print(e)
+        print(type(e))
     except Exception as e:
         print(e)
         print(type(e))
