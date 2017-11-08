@@ -87,7 +87,7 @@ class ModificarDatos(View):
     def post(self, request):
         try:
             modificaUsuario(request)
-            return redirect('usuario:modificar')
+            return redirect('usuario:perfil')
         except Exception as e:
             print(e)
             print(type(e))

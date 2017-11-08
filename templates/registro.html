@@ -4,7 +4,7 @@
 {% block content %}
 <div class="jumbotron text-center">
   <div class="page-header"><h1>Registro</h1></div>
-    <form class="form-horizontal" method="POST">
+    <form class="form-horizontal" method="POST" name="formr" onsubmit="validregistro">
         {% csrf_token %}
       <fieldset>
         <legend>Llena los campos</legend>
@@ -35,13 +35,13 @@
         <div class="form-group">
           <label for="pass" class="col-lg-2 control-label">Contraseña</label>
           <div class="col-lg-10">
-            <input type="password" name="contrasena" class="form-control" id="pass" placeholder="Contraseña" required>
+            <input type="password" name="contrasena1" class="form-control" id="pass" placeholder="Contraseña" required>
           </div>
         </div>
         <div class="form-group">
           <label for="pass2login" class="col-lg-2 control-label">Repite tu contraseña</label>
           <div class="col-lg-10">
-            <input type="password" class="form-control" id="pass2login" placeholder="Repite tu contraseña" required>
+            <input type="password" name="contrasena2" class="form-control" id="pass2login" placeholder="Repite tu contraseña" required>
           </div>
         </div>
         <div class="form-group">

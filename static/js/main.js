@@ -72,3 +72,39 @@ jQuery(document).ready(function(){
     })( jQuery );
 
 });
+
+function valid(){
+    contra1 = document.form1.contrasena.value;
+    contra2 = document.form1.contrasenados.value;
+    usuario = document.form1.usuario.value;
+    apellidos = document.form1.apellidos.value;
+    var espacios = false;
+    var cont = 0;
+
+    while (!espacios && (cont < usuario.length) || !espacios && (cont < apellidos.length) ) {
+        if (usuario.charAt(cont) == " " || apellidos.charAt(cont) == " ")
+        espacios = true;
+        cont++;
+    }
+
+    if (espacios) {
+        alert("No debe haber campos de texto vacio a excepción de la contraseña en caso de no querer cambiarla");
+        return false;
+    }
+
+    if(contra1 != contra2){
+        alert("Las contraseñas no coinciden");
+        return false;
+    }
+
+
+}
+
+function validregistro(){
+    contra = document.formr.contrasena.value;
+    contrar = document.formr.contrasenados.value;
+    if(contra != contrar){
+        alert("Las contraseñas no coinciden");
+        return false;
+    }
+}

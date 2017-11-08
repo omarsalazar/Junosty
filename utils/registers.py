@@ -24,7 +24,7 @@ def registro(datosRegistro):
 def registroUser(username, password):
     try:
         User.objects.create_user(username=username, password=password)
-    except Exception as e:
+    except Excetion as e:
         print(e)
         print(type(e))
 
