@@ -26,7 +26,7 @@ source myvenv/bin/activate
 
 #### Instalación de dependencias.
 ```
-pip install -r requirements.txt
+pip install -r requirementos.txt
 ```
 ### Ejecuta el proyecto.
 ```
